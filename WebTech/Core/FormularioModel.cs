@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebTech.Core
 {
-    [Serializable]
+    [Serializable] 
     public class FormularioModel
     {
         public int Id { get; set; }
