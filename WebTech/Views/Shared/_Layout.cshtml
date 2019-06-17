@@ -1,0 +1,10 @@
+﻿@Html.Partial("_Header")
+@RenderSection("styles", required: false)
+@*@Html.Partial("_HeaderClose")*@
+@Html.Partial("_Body")
+@*@Html.Partial("_Menu")*@
+@RenderBody()
+@*@Html.Partial("_Footer")*@
+@Html.Partial("_BodyScript")
+@RenderSection("scripts", required: false)
+@Html.Partial("_BodyClose")

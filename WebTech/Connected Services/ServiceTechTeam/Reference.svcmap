@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="daa90fd0-861a-4045-a821-3f5a1f23a0cb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59230/ServiceDevTech.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceDevTech.xsd" MetadataType="Schema" ID="4ce67544-68d1-43d9-8bd4-ba456992d52d" SourceId="1" SourceUrl="http://localhost:59230/ServiceDevTech.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceDevTech1.xsd" MetadataType="Schema" ID="eeec2d6a-2dd7-4332-b5e0-952c492f35b6" SourceId="1" SourceUrl="http://localhost:59230/ServiceDevTech.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceDevTech2.xsd" MetadataType="Schema" ID="fe6bd82e-948f-4163-89ec-0b0ad8489c17" SourceId="1" SourceUrl="http://localhost:59230/ServiceDevTech.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceDevTech3.xsd" MetadataType="Schema" ID="622a0d2c-8090-4cc2-b280-e1c05df7f582" SourceId="1" SourceUrl="http://localhost:59230/ServiceDevTech.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceDevTech.disco" MetadataType="Disco" ID="7af3b5f7-1dfc-4b1b-93c1-a9edce4efb63" SourceId="1" SourceUrl="http://localhost:59230/ServiceDevTech.svc?disco" />
+    <MetadataFile FileName="ServiceDevTech.wsdl" MetadataType="Wsdl" ID="26645677-2a44-4af2-b1c8-b14fbb3787ff" SourceId="1" SourceUrl="http://localhost:59230/ServiceDevTech.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
