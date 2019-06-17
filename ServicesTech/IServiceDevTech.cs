@@ -1,9 +1,7 @@
 ﻿
-using ServicesTech.Dominio;
-using System.Collections.Generic;
+using ServicesTech.Dominio; 
 using System.ServiceModel;
-using Tecactus.Api.Reniec;
-using Tecactus.Api.Sunat;
+ 
 
 namespace ServicesTech
 {
@@ -20,6 +18,6 @@ namespace ServicesTech
 
         [OperationContract] UsuarioModel GetDatabyUserTech(string username);
         
-        
+        [OperationContract] int InsertDataClient(Client client);
     }
 }

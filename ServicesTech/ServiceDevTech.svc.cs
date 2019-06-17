@@ -14,30 +14,38 @@ namespace ServicesTech
     {
         public Empresa ConsultDatosCompany(string RUC)
         {
-            var tokensApi = new Ruc(ConfigurationManager.AppSettings["tokensApiReniecSunat"].ToString());
-            Company company = tokensApi.get(RUC);
 
             Empresa empresa_data = new Empresa();
-            empresa_data.actividad_comercio_exterior = company.actividad_comercio_exterior;
-            empresa_data.condicion_contribuyente = company.condicion_contribuyente;
-            empresa_data.direccion = company.direccion;
-            empresa_data.estado_contribuyente = company.estado_contribuyente;
-            empresa_data.fecha_inicio_actividades = company.fecha_inicio_actividades;
-            empresa_data.fecha_inscripcion = company.fecha_inscripcion;
-            empresa_data.nombre_comercial = company.nombre_comercial;
-            empresa_data.razon_social = company.razon_social;
-            empresa_data.ruc = company.ruc;
-            empresa_data.sistema_contabilidad = company.sistema_contabilidad;
-            empresa_data.sistema_emision_comprobante = company.sistema_emision_comprobante;
-            empresa_data.tipo_contribuyente = company.tipo_contribuyente;
+            try
+            {
+                var tokensApi = new Ruc("8oZnzpEUWYeK9DhpuZVwJbQjH77WPdSg744vY31O");
+                Company company = tokensApi.get(RUC);
 
+                empresa_data.actividad_comercio_exterior = company.actividad_comercio_exterior;
+                empresa_data.condicion_contribuyente = company.condicion_contribuyente;
+                empresa_data.direccion = company.direccion;
+                empresa_data.estado_contribuyente = company.estado_contribuyente;
+                empresa_data.fecha_inicio_actividades = company.fecha_inicio_actividades;
+                empresa_data.fecha_inscripcion = company.fecha_inscripcion;
+                empresa_data.nombre_comercial = company.nombre_comercial;
+                empresa_data.razon_social = company.razon_social;
+                empresa_data.ruc = company.ruc;
+                empresa_data.sistema_contabilidad = company.sistema_contabilidad;
+                empresa_data.sistema_emision_comprobante = company.sistema_emision_comprobante;
+                empresa_data.tipo_contribuyente = company.tipo_contribuyente;
+
+            }
+            catch (Exception e)
+            {
+                 
+            }
 
             return empresa_data;
         }
 
         public PersonaNatural ConsultDatosPersonal(string dni)
         {
-            var tokensApi = new Dni(ConfigurationManager.AppSettings["tokensApiReniecSunat"].ToString());
+            var tokensApi = new Dni("8oZnzpEUWYeK9DhpuZVwJbQjH77WPdSg744vY31O");
             Person person = tokensApi.get(dni);
 
             PersonaNatural personaNatural = new PersonaNatural();
@@ -124,6 +132,46 @@ namespace ServicesTech
 
         }
 
+        public int InsertDataClient(Client client)
+        {
+            int outputVal = 0;
+
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.AppSettings["Connect_database"].ToString()))
+            {
+                try
+                {
+                    cn.Open();
+                    SqlCommand command = new SqlCommand("uspInsertDataClient", cn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@tipo_cliente", client.tipo_cliente);
+                    command.Parameters.AddWithValue("@Identificador_client", client.Identificador_client);
+                    command.Parameters.AddWithValue("@Nombres_client", client.Nombres_client);
+                    command.Parameters.AddWithValue("@direccion_client", client.Direccion_client);
+                    command.Parameters.AddWithValue("@representate", client.representate);
+                    command.Parameters.AddWithValue("@identificador_representante", client.identificador_representante);
+                    command.Parameters.AddWithValue("@celular", client.celular);
+                    command.Parameters.AddWithValue("@mail", client.mail);
+                    command.Parameters.AddWithValue("@canalAtencion", client.canalAtencion);
+                    command.Parameters.AddWithValue("@AsessorCommercial", client.AsessorCommercial);
+                    command.Parameters.AddWithValue("@distrito", client.distrito);
+                    command.Parameters.Add("@valoutput", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    command.ExecuteNonQuery();
+                    outputVal = (int)command.Parameters["@valoutput"].Value;
+                }
+                catch (Exception)
+                {
+                    outputVal = -1;
+                }
+                finally
+                {
+                    cn.Close();
+
+                }
+            }
+
+                return outputVal;
+        }
 
     }
 }

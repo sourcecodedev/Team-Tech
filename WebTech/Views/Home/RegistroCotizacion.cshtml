@@ -1,9 +1,15 @@
 ﻿
 @{
-    ViewBag.Title = "RegistroCotizacion";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+                /**/
 
+                ViewBag.Title = "RegistroCotizacion";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link href="~/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/assets/pages/data-table/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+}
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <div class="main-body">
@@ -43,9 +49,130 @@
                                     @*<h5>clientes</h5>*@
                                 </div>
                                 <div class="card-block">
-                                    <div class="row">
+                                    <form>
+                                        <span>Cliente</span>
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                                <select name="select" class="form-control">
+                                                    <option value="opt1">Empresa</option>
+                                                    <option value="opt2">Personal</option>
+                                                </select>
 
-                                    </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                                <div class="input-group input-group-button">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                    <span class="input-group-addon btn btn-primary" id="basic-addon10">
+                                                        <span class="">Consultar</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6  col-sm-12">
+                                                <div class="input-group input-group-button">
+                                                    <label class="row align-items-end col-lg-3">Costo Total</label>
+                                                    <input type="text" class="form-control form-txt-inverse col-lg-8" value="0.0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="sub-title">Agregar Servicios</h4>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <select name="select" class="form-control">
+                                                    <option value="opt1">Selecionar Tipo Servicio</option>
+                                                    <option value="opt2">TRADUCCIÓN</option>
+                            
+
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <select name="select" class="form-control">
+                                                    <option value="opt1">Selecionar un Idioma</option>
+                                                    <option value="opt2">INGLÉS - ESPAÑOL</option>
+                                                    <option value="opt3">ESPAÑOL - INGLÉS</option> 
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                  
+                                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                                    <input type="text" class="form-control form-txt-inverse" placeholder="Tarifa X Pagina">
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                                    <input type="text" class="form-control form-txt-inverse" placeholder="Cantidad de paginas *">
+                                                </div>
+                                
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <textarea rows="2" cols="2" class="form-control" placeholder="Descripción Documento"></textarea>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <button class="btn btn-success btn-square" type="button" >Agregar Servicio</button>
+                                                <button class="btn btn-danger btn-square" type="button" >Grabar Cotizacion</button>
+                                            </div>
+                                        </div>
+                                        <br />
+
+                                        <div class="row">
+                                            <div class="table-responsive dt-responsive">
+                                                <div id="dt-render_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>ITEM</th>
+                                                                    <th class="text-left">IDIOMA</th>
+                                                                    <th class="text-left">CLIENTE</th>
+                                                                    <th class="text-left">DESCRIPCIÓN</th>
+                                                                    <th class="text-left">TIPOSERVICIO</th>
+                                                                    <th class="text-right">TARIFA</th>
+                                                                    <th class="text-right">N°PÁGINAS</th>
+                                                                    <th class="text-right">TOTAL APROX.</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="no">01</td>
+                                                                    <td class="text-left">INGLÉS - ESPAÑOL</td>
+                                                                    <td class="text-left">sapia</td>
+                                                                    <td class="text-left">Creating a recognizably</td>
+                                                                    <td class="text-left">TRADUCCIÓN</td>
+                                                                    <td class="unit">S/ 0.00</td>
+                                                                    <td class="qty">0</td>
+                                                                    <td class="total">S/ 0.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="no">02</td>
+                                                                    <td class="text-left">INGLÉS - ESPAÑOL</td>
+                                                                    <td class="text-left">sapia</td>
+                                                                    <td class="text-left">Creating a recognizably</td>
+                                                                    <td class="text-left">TRADUCCIÓN</td>
+                                                                    <td class="unit">S/ 0.00</td>
+                                                                    <td class="qty">0</td>
+                                                                    <td class="total">S/ 0.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="no">03</td>
+                                                                    <td class="text-left">INGLÉS - ESPAÑOL</td>
+                                                                    <td class="text-left">sapia</td>
+                                                                    <td class="text-left">Creating a recognizably</td>
+                                                                    <td class="text-left">TRADUCCIÓN</td>
+                                                                    <td class="unit">S/ 0.00</td>
+                                                                    <td class="qty">0</td>
+                                                                    <td class="total">S/ 0.00</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -55,3 +182,18 @@
         </div>
     </div>
 </div>
+@section scripts{
+
+    <script type="text/javascript" src="~/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="~/assets/pages/data-table/js/jszip.min.js"></script>
+    <script type="text/javascript" src="~/assets/pages/data-table/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script type="text/javascript" src="~/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/assets/pages/data-table/js/data-table-custom.js"></script>
+     
+}

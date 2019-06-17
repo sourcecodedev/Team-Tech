@@ -1356,6 +1356,7 @@
     <Content Include="assets\pages\x-editable\js\tm_editable.js" />
     <Content Include="assets\pages\x-editable\js\tm_validator.js" />
     <Content Include="assets\pages\x-editable\js\xeditable.js" />
+    <Content Include="assets\ViewJs\JsHomeRegistrarClient.js" />
     <Content Include="bower_components\animate.css\css\animate.css" />
     <Content Include="bower_components\autosize\js\autosize.min.js" />
     <Content Include="bower_components\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
@@ -1539,11 +1540,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\PersonaNatural.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Models\WebUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesApi\Interface\IAccount.cs" />
+    <Compile Include="ServicesApi\Interface\IHomeClientServices.cs" />
     <Compile Include="ServicesApi\Services\ServicesAccount.cs" />
+    <Compile Include="ServicesApi\Services\ServicesHomeClient.cs" />
     <Compile Include="Utilities\AuthenticationHelper.cs" />
     <Compile Include="Utilities\ConstantesWeb.cs" />
     <Compile Include="Utilities\CsvExport.cs" />

@@ -1,8 +1,16 @@
 ﻿
 @{
-                ViewBag.Title = "RegistroCliente";
-                Layout = "~/Views/Shared/_Layout.cshtml";
-} 
+    ViewBag.Title = "RegistroCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+
+    <link href="~/bower_components/pnotify/css/pnotify.css" rel="stylesheet" />
+    <link href="~/bower_components/pnotify/css/pnotify.brighttheme.css" rel="stylesheet" />
+    <link href="~/bower_components/pnotify/css/pnotify.buttons.css" rel="stylesheet" />
+    <link href="~/bower_components/pnotify/css/pnotify.history.css" rel="stylesheet" />
+    <link href="~/bower_components/pnotify/css/pnotify.mobile.css" rel="stylesheet" />
+}
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <div class="main-body">
@@ -59,30 +67,30 @@
                                                     <form>
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
- 
+
                                                                 <div class="input-group input-group-button">
-                                                                    <input type="text" class="form-control" placeholder="DNI ó Carnet Extranjería">
-                                                                    <span class="input-group-addon btn btn-primary" id="basic-addon10">
+                                                                    <input type="text" id="txtdni_PersonaNatural" maxlength="8" class="form-control" placeholder="DNI ó Carnet Extranjería">
+                                                                    <span class="input-group-addon btn btn-primary" id="btnPersonaNaturalSeach">
                                                                         <span class="">Validar</span>
                                                                     </span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Apellidos y Nombres *">
+                                                                <input type="text" id="txtNombreCompletos_PersonaNatural" disabled="disabled" class="form-control form-txt-inverse" placeholder="Apellidos y Nombres *">
                                                             </div>
 
                                                         </div>
-                                                      
+
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Dirección *">
+                                                                <input type="text" class="form-control form-txt-inverse" id="txtDireccion_PersonaNatural" placeholder="Dirección *">
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                                <select name="select" class="form-control">
-                                                                    <option value="opt1">Selecionar un valor</option>
-                                                                    <option value="opt2">Lima</option>
-                                                                    <option value="opt3">San Miguel</option>
-                                                                    <option value="opt4">Santa Anita</option>
+                                                                <select name="select" id="cboDistrito_PersonaNatural" class="form-control">
+                                                                    <option value="opt1">Selecionar Distrito</option>
+                                                                    <option value="Lima">Lima</option>
+                                                                    <option value="San Miguel">San Miguel</option>
+                                                                    <option value="Santa Anita">Santa Anita</option>
 
                                                                 </select>
                                                             </div>
@@ -90,28 +98,28 @@
                                                         <br />
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Celular *">
+                                                                <input type="text" class="form-control form-txt-inverse" id="txtCelular_PersonaNatural" placeholder="Celular *">
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                                <input type="email" class="form-control input-danger" id="email" name="email" placeholder="Correo electronico">
+                                                                <input type="email" class="form-control input-danger" id="txtemail_PersonaNatural" name="email" placeholder="Correo electronico">
                                                             </div>
                                                         </div>
                                                         <br />
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <select name="select" class="form-control">
-                                                                    <option value="opt1">Canal de Atención</option>
-                                                                    <option value="opt2">VENTANILLA</option>
-                                                                    <option value="opt3">CORREO</option>
-                                                                    <option value="opt4">PAGINA WEB</option>
+                                                                <select name="select" id="cboCanalAtencion_PersonaNatural" class="form-control">
+                                                                    <option value="0">Canal de Atención</option>
+                                                                    <option value="VENTANILLA">VENTANILLA</option>
+                                                                    <option value="CORREO">CORREO</option>
+                                                                    <option value="PAGINA WEB">PAGINA WEB</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <select name="select" class="form-control">
-                                                                    <option value="opt1">Asesor Comercial</option>
-                                                                    <option value="opt2">-</option>
-                                                                    <option value="opt3">-</option>
-                                                                    <option value="opt4">-</option>
+                                                                <select name="select" id="cboAsesorComercial_PersonaNatural" class="form-control">
+                                                                    <option value="0">Asesor Comercial</option>
+                                                                    <option value="Yhimy Wilberto">Yhimy Wilberto</option>
+                                                                    <option value="Andres Carrillo">Andres Carrillo</option>
+                                                                    <option value="Milton Cars.">Milton Cars.</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -121,38 +129,38 @@
 
                                                             </div>
                                                             <div class="col-lg-2 col-md-2 col-sm-12">
-                                                                <button type="button" class="btn btn-primary m-b-10">Submit</button>
+                                                                <button type="button" class="btn btn-primary m-b-10" id="btnGrabarClientePrsonaNatural">GrabarCliente</button>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                                 <div class="tab-pane" id="EmpresaTab" role="tabpanel">
                                                     <form>
-                                                        <div class="row"> 
+                                                        <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
 
                                                                 <div class="input-group input-group-button">
-                                                                    <input type="text" class="form-control" placeholder="RUC*">
-                                                                    <span class="input-group-addon btn btn-primary" id="basic-addon10">
+                                                                    <input type="text" id="txtRuc_empresa" class="form-control" placeholder="RUC*">
+                                                                    <span class="input-group-addon btn btn-primary" id="btnPersonaEmpresaSearch">
                                                                         <span class="">Validar</span>
                                                                     </span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Nombre Empresa*">
+                                                                <input type="text" id="txtNombreEmpresa_Empresa" disabled="disabled" class="form-control form-txt-inverse" placeholder="Nombre Empresa*">
                                                             </div>
                                                         </div>
-                                                  
+
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Dirección Empresa">
+                                                                <input type="text" class="form-control form-txt-inverse" id="txtDireccion_Empresa"  disabled="disabled"  placeholder="Dirección Empresa">
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                                <select name="select" class="form-control">
-                                                                    <option value="opt1">Selecionar un valor</option>
-                                                                    <option value="opt2">Lima</option>
-                                                                    <option value="opt3">San Miguel</option>
-                                                                    <option value="opt4">Santa Anita</option>
+                                                                <select name="select" id="cboDistrito_Empresa" class="form-control">
+                                                                    <option value="0">Selecionar un valor</option>
+                                                                    <option value="Lima">Lima</option>
+                                                                    <option value="San Miguel">San Miguel</option>
+                                                                    <option value="Santa Anita">Santa Anita</option>
 
                                                                 </select>
                                                             </div>
@@ -160,25 +168,25 @@
                                                         <br />
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Representante*">
+                                                                <input type="text" id="txtRepresentante_Empresa" class="form-control form-txt-inverse" placeholder="Representante*">
                                                             </div>
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Dni representante*">
+                                                                <input type="text" class="form-control form-txt-inverse"  id="txtdnirepsentante_Empresa" placeholder="Dni representante*">
                                                             </div>
                                                         </div>
                                                         <br />
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <input type="text" class="form-control form-txt-inverse" placeholder="Celular *">
+                                                                <input type="text" class="form-control form-txt-inverse" id="txtcelular_Empresa" placeholder="Celular *">
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                                <input type="email" class="form-control input-danger" id="email" name="email" placeholder="Correo electronico">
+                                                                <input type="email" class="form-control input-danger" id="email_Empresa" name="email" placeholder="Correo electronico">
                                                             </div>
                                                         </div>
                                                         <br />
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <select name="select" class="form-control">
+                                                                <select name="select" id="cboAtencion_Empresa" class="form-control">
                                                                     <option value="opt1">Canal de Atención</option>
                                                                     <option value="opt2">VENTANILLA</option>
                                                                     <option value="opt3">CORREO</option>
@@ -186,11 +194,11 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6  col-sm-12">
-                                                                <select name="select" class="form-control">
-                                                                    <option value="opt1">Asesor Comercial</option>
-                                                                    <option value="opt2">-</option>
-                                                                    <option value="opt3">-</option>
-                                                                    <option value="opt4">-</option>
+                                                                <select name="select" id="cboAsesor_Empresa" class="form-control">
+                                                                    <option value="0">Asesor Comercial</option>
+                                                                    <option value="Yhimy Wilberto">Yhimy Wilberto</option>
+                                                                    <option value="Andres Carrillo">Andres Carrillo</option>
+                                                                    <option value="Milton Cars.">Milton Cars.</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -200,7 +208,7 @@
 
                                                             </div>
                                                             <div class="col-lg-2 col-md-2 col-sm-12">
-                                                                <button type="button" class="btn btn-primary m-b-10">Submit</button>
+                                                                <button type="button" class="btn btn-primary m-b-10" id="btnGuardarEmpresa">GuardarClient</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -217,5 +225,25 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script src="~/bower_components/pnotify/js/pnotify.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.desktop.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.buttons.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.confirm.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.callbacks.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.animate.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.history.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.mobile.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.nonblock.js"></script>
+    <script src="~/assets/ViewJs/JsHomeRegistrarClient.js"></script>
+    <script type="text/javascript">
+        JsHomeRegistrarClient.init({
+
+
+        });
+
+    </script>
+
+}
 
 
