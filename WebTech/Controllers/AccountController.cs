@@ -22,11 +22,11 @@ namespace WebTech.Controllers
             var jsonResponse = new JsonResponse { Success = true };
             try
             {
-                int response = ServicesAccount.Instancia.ValidateAccessLoginTeamTech(usu, pass);
+                int response = SOATServicesUsuario.Instancia.ValidateAccessLoginTeamTech(usu, pass);
 
                 if (response == 1 )
                 {
-                    var _dataLogin_usuaario = ServicesAccount.Instancia.GetDatabyUserTech(usu);
+                    var _dataLogin_usuaario = SOATServicesUsuario.Instancia.GetDatabyUserTech(usu);
                     GenerarTickectAutenticacion(_dataLogin_usuaario);
                     jsonResponse.Data = _dataLogin_usuaario.NombreEmpleado + "" + _dataLogin_usuaario.Apellido_empleado;
                     jsonResponse.Success = true;

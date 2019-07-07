@@ -1,20 +1,20 @@
 ﻿
-using ServicesTech;
 using TeamTech.Common.Generics;
 using WebTech.Models;
+using WebTech.ServiceClient;
 using WebTech.ServicesApi.Interface;
 
 namespace WebTech.ServicesApi.Services
 {
-    public class ServicesHomeClient : Singleton<ServicesHomeClient>, IHomeClientServices<Client>
+    public class SOATServicesClient : Singleton<SOATServicesClient>, ISOATServicesClient<Client>
     {
         public Empresa ConsultDatosCompany(string ruc)
         {
-            ServiceDevTech serviceDevTech = new ServiceDevTech();
+           ServiceClientClient _serviceClientClient = new ServiceClientClient();
 
             Empresa _data_empresa = new Empresa();
 
-            var data = serviceDevTech.ConsultDatosCompany(ruc);
+            var data = _serviceClientClient.ConsultDatosCompany(ruc);
 
             _data_empresa.actividad_comercio_exterior = data.actividad_comercio_exterior;
             _data_empresa.condicion_contribuyente = data.condicion_contribuyente;
@@ -34,11 +34,11 @@ namespace WebTech.ServicesApi.Services
 
         public PersonaNatural ConsultDatosPersonal(string dni)
         {
-            ServiceDevTech serviceDevTech = new ServiceDevTech();
+            ServiceClientClient _serviceClientClient = new ServiceClientClient();
 
             PersonaNatural persona = new PersonaNatural();
 
-            var data = serviceDevTech.ConsultDatosPersonal(dni);
+            var data = _serviceClientClient.ConsultDatosPersonal(dni);
 
             persona.apellido_materno = data.apellido_materno;
             persona.apellido_paterno = data.apellido_paterno;
@@ -52,9 +52,8 @@ namespace WebTech.ServicesApi.Services
 
         public int InsertDataClient(Client data)
         {
-            ServiceDevTech serviceDevTech = new ServiceDevTech();
-
-            var value_ouput = serviceDevTech.InsertDataClient(new ServicesTech.Dominio.Client()
+            ServiceClientClient _serviceClientClient = new ServiceClientClient();
+            var value_ouput = _serviceClientClient.InsertDataClient(new ServicesTech.Dominio.Client()
             {
 
                 AsessorCommercial = data.AsessorCommercial,

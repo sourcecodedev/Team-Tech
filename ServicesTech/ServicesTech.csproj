@@ -67,7 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ServiceDevTech.svc" />
+    <Content Include="ServiceClient.svc" />
+    <Content Include="ServiceUsuario.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -77,11 +78,15 @@
     <Compile Include="Dominio\Empresa.cs" />
     <Compile Include="Dominio\PersonaNatural.cs" />
     <Compile Include="Dominio\UsuarioModel.cs" />
-    <Compile Include="ServiceDevTech.svc.cs">
-      <DependentUpon>ServiceDevTech.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IServiceDevTech.cs" />
+    <Compile Include="IServiceClient.cs" />
+    <Compile Include="IServiceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceClient.svc.cs">
+      <DependentUpon>ServiceClient.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUsuario.svc.cs">
+      <DependentUpon>ServiceUsuario.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

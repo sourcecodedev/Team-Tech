@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTech", "WebTech\WebTech.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesTech", "ServicesTech\ServicesTech.csproj", "{6925930C-44FF-4D78-81C5-E13E73F1D7C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamTech.Common", "TeamTech.Common\TeamTech.Common.csproj", "{6703063F-C145-4D0F-A63E-55B9E08FF75F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamTech.Common", "TeamTech.Common\TeamTech.Common.csproj", "{6703063F-C145-4D0F-A63E-55B9E08FF75F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

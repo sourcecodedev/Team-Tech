@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicesTech.Dominio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicesTech.Dominio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="UsuarioModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active_Employeee" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Apellido_Employee" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email_Employee" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Employee" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PK_empleado" type="xs:int" />
+      <xs:element minOccurs="0" name="RolId" type="xs:int" />
+      <xs:element minOccurs="0" name="RolNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UsuarioModel" nillable="true" type="tns:UsuarioModel" />
+</xs:schema>

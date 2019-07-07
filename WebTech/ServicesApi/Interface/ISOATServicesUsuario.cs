@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebTech.ServicesApi.Interface
 {
-    interface IAccount<T> where T : class
+    interface ISOATServicesUsuario<T> where T : class
     {
         int ValidateAccessLoginTeamTech(string usu, string pass);
+        T GetDatabyUserTech(string usu);
     }
 }

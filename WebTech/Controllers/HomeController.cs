@@ -37,7 +37,7 @@ namespace WebTech.Controllers
 
             try
             {
-                var Response = ServicesHomeClient.Instancia.InsertDataClient( new Models.Client() {
+                var Response = SOATServicesClient.Instancia.InsertDataClient( new Models.Client() {
                     AsessorCommercial = asesorComercial,
                     canalAtencion= canal_Atencion,
                     celular = celular,
@@ -67,7 +67,7 @@ namespace WebTech.Controllers
 
             try
             {
-                var Response = ServicesHomeClient.Instancia.InsertDataClient(new Models.Client()
+                var Response = SOATServicesClient.Instancia.InsertDataClient(new Models.Client()
                 {
                     AsessorCommercial = asesor_comercial,
                     canalAtencion = canal_atencion_empresa,
@@ -100,7 +100,7 @@ namespace WebTech.Controllers
 
             try
             {
-                var dataCompany = ServicesHomeClient.Instancia.ConsultDatosCompany(ruc);
+                var dataCompany = SOATServicesClient.Instancia.ConsultDatosCompany(ruc);
 
                 if (dataCompany != null)
                 {
@@ -129,7 +129,7 @@ namespace WebTech.Controllers
 
             try
             {
-                var datapersonal = ServicesHomeClient.Instancia.ConsultDatosPersonal(dni);
+                var datapersonal = SOATServicesClient.Instancia.ConsultDatosPersonal(dni);
 
                 if (datapersonal != null)
                 {
