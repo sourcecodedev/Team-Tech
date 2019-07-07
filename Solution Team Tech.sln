@@ -12,6 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesTech", "ServicesTec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamTech.Common", "TeamTech.Common\TeamTech.Common.csproj", "{6703063F-C145-4D0F-A63E-55B9E08FF75F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{43151E14-B956-4DD6-B4C9-0DC181DE0417}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Documents\script_squemaTeamTech.sql = ..\..\..\Documents\script_squemaTeamTech.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
