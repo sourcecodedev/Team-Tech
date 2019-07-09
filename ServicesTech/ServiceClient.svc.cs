@@ -19,7 +19,7 @@ namespace ServicesTech
             Empresa empresa_data = new Empresa();
             try
             {
-                var tokensApi = new Ruc("8oZnzpEUWYeK9DhpuZVwJbQjH77WPdSg744vY31O");
+                var tokensApi = new Ruc("SN3I4pg524oE0ZWfEoPUz5oVLcb0fykPJ6PfuLlN");
                 Company company = tokensApi.get(RUC);
 
                 empresa_data.actividad_comercio_exterior = company.actividad_comercio_exterior;
@@ -46,17 +46,24 @@ namespace ServicesTech
 
         public PersonaNatural ConsultDatosPersonal(string dni)
         {
-            var tokensApi = new Dni("8oZnzpEUWYeK9DhpuZVwJbQjH77WPdSg744vY31O");
-            Person person = tokensApi.get(dni);
-
+            
             PersonaNatural personaNatural = new PersonaNatural();
+            try
+            {
+                var tokensApi = new Dni("SN3I4pg524oE0ZWfEoPUz5oVLcb0fykPJ6PfuLlN");
+                Person person = tokensApi.get(dni);
+                personaNatural.dni = person.dni;
+                personaNatural.nombres = person.nombres;
+                personaNatural.apellido_materno = person.apellido_materno;
+                personaNatural.apellido_paterno = person.apellido_paterno;
+                personaNatural.caracter_verificacion = person.caracter_verificacion;
+                personaNatural.caracter_verificacion_anterior = person.caracter_verificacion_anterior;
 
-            personaNatural.dni = person.dni;
-            personaNatural.nombres = person.nombres;
-            personaNatural.apellido_materno = person.apellido_materno;
-            personaNatural.apellido_paterno = person.apellido_paterno;
-            personaNatural.caracter_verificacion = person.caracter_verificacion;
-            personaNatural.caracter_verificacion_anterior = person.caracter_verificacion_anterior;
+            }
+            catch (Exception e)
+            {
+
+            } 
 
             return personaNatural;
         }
@@ -81,14 +88,14 @@ namespace ServicesTech
                     command.Parameters.AddWithValue("@celular", client.celular);
                     command.Parameters.AddWithValue("@mail", client.mail);
                     command.Parameters.AddWithValue("@canalAtencion", client.canalAtencion);
-                    command.Parameters.AddWithValue("@AsessorCommercial", client.AsessorCommercial);
+                    command.Parameters.AddWithValue("@EmployeeeId", client.AsessorCommercial);
                     command.Parameters.AddWithValue("@distrito", client.distrito);
                     command.Parameters.Add("@valoutput", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     command.ExecuteNonQuery();
                     outputVal = (int)command.Parameters["@valoutput"].Value;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     outputVal = -1;
                 }
@@ -102,5 +109,6 @@ namespace ServicesTech
             return outputVal;
         }
 
+         
     }
 }

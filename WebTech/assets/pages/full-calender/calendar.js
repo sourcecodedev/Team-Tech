@@ -20,8 +20,6 @@ $(document).ready(function () {
 
     });
 
-
-
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
@@ -29,7 +27,6 @@ $(document).ready(function () {
             right: 'month,agendaWeek,agendaDay,listMonth'
         },
         defaultDate: new Date(),
-
         navLinks: true, // can click day/week names to navigate views
         businessHours: true, // display business hours
         editable: true,
@@ -38,73 +35,79 @@ $(document).ready(function () {
 
             // is the "remove after drop" checkbox checked?
             if ($('#checkbox2').is(':checked')) {
-                debugger;
                 // if so, remove the element from the "Draggable Events" list
                 $(this).remove();
             }
         },
         events: [{
             title: 'Business Lunch',
-            start: '2019-06-11T13:00:00',
+            start: '2019-09-03T13:00:00',
             constraint: 'businessHours',
             borderColor: '#FC6180',
             backgroundColor: '#FC6180',
             textColor: '#fff'
         }, {
             title: 'Meeting',
-            start: '2019-06-12T11:00:00',
+            start: '2019-10-13T11:00:00',
             constraint: 'availableForMeeting',
             editable: true,
             borderColor: '#4680ff',
             backgroundColor: '#4680ff',
             textColor: '#fff'
-        },
-        {
+        }, {
+            title: 'Conference',
+            start: '2019-08-18',
+            end: '2019-08-20',
+            borderColor: '#93BE52',
+            backgroundColor: '#93BE52',
+            textColor: '#fff'
+        }, {
             title: 'Party',
-            start: '2019-06-11T20:00:00',
+            start: '2019-07-29T20:00:00',
             borderColor: '#FFB64D',
             backgroundColor: '#FFB64D',
             textColor: '#fff'
+        },
+
+        // areas where "Meeting" must be dropped
+        {
+            id: 'availableForMeeting',
+            start: '2019-07-11T10:00:00',
+            end: '2019-07-11T16:00:00',
+            rendering: 'background',
+            borderColor: '#ab7967',
+            backgroundColor: '#ab7967',
+            textColor: '#fff'
+        }, {
+            id: 'availableForMeeting',
+            start: '2019-07-13T10:00:00',
+            end: '2019-07-13T16:00:00',
+            rendering: 'background',
+            borderColor: '#39ADB5',
+            backgroundColor: '#39ADB5',
+            textColor: '#fff'
+        },
+
+        // red areas where no events can be dropped
+        {
+            start: '2019-08-01',
+            end: '2019-08-01',
+            overlap: false,
+            rendering: 'background',
+            borderColor: '#FFB64D',
+            backgroundColor: '#FFB64D',
+            color: '#d8d6d6'
+        }, {
+            start: '2019-07-06',
+            end: '2016-07-06',
+            overlap: false,
+            rendering: 'background',
+            borderColor: '#ab7967',
+            backgroundColor: '#ab7967',
+            color: '#d8d6d6'
         }
-            //        },
-
-            //        // areas where "Meeting" must be dropped
-            //        {
-            //            id: 'availableForMeeting',
-            //            start: '2016-09-11T10:00:00',
-            //            end: '2016-09-11T16:00:00',
-            //            rendering: 'background',
-            //borderColor: '#ab7967',
-            //backgroundColor: '#ab7967',
-            //textColor: '#fff'
-            //        }, {
-            //            id: 'availableForMeeting',
-            //            start: '2016-09-13T10:00:00',
-            //            end: '2016-09-13T16:00:00',
-            //            rendering: 'background',
-            //borderColor: '#39ADB5',
-            //backgroundColor: '#39ADB5',
-            //textColor: '#fff'
-            //        },
-
-            //        // red areas where no events can be dropped
-            //        {
-            //            start: '2016-09-24',
-            //            end: '2016-09-28',
-            //            overlap: false,
-            //            rendering: 'background',
-            //borderColor: '#FFB64D',
-            //backgroundColor: '#FFB64D',
-            //            color: '#d8d6d6'
-            //        }, {
-            //            start: '2016-09-06',
-            //            end: '2016-09-08',
-            //            overlap: false,
-            //            rendering: 'background',
-            //borderColor: '#ab7967',
-            //backgroundColor: '#ab7967',
-            //            color: '#d8d6d6'
-            //        }
         ]
     });
+
+
 });

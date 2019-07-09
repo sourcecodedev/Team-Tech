@@ -2,7 +2,6 @@
 var empresavalida = false;
 var JsHomeRegistrarClient = function () {
 
-
     $('#btnPersonaNaturalSeach').on('click', function () {
 
 
@@ -40,6 +39,7 @@ var JsHomeRegistrarClient = function () {
             if (ruc != '' && nombre_emprea != '' && dirrecion != '' && distrito_empresa != '' && representante_empresa != '' && dniRepresentante_empresa != '' && celular_empresa != '' && correo_empresa != '' && canal_atencion_empresa != '' && asesor_comercial != '') {
 
                 SaveClienteData_Empresa(ruc, nombre_emprea, dirrecion, distrito_empresa, representante_empresa, dniRepresentante_empresa, celular_empresa, correo_empresa, canal_atencion_empresa, asesor_comercial);
+                GetInfoEmpleadoByIdQuequeMessage(asesor_comercial, nombre_emprea, ruc, "Empresa");
             }
             else {
                 new PNotify({
@@ -95,6 +95,9 @@ var JsHomeRegistrarClient = function () {
 
             if (dni != '' && NombresCompletos != '' && direccion != '' && celular != '' && canal_Atencion != '' && asesorComercial != '' && mail != '' && distrito != '') {
                 SaveClienteData_PersonaNatural(dni, NombresCompletos, direccion, distrito, celular, canal_Atencion, asesorComercial, mail, distrito);
+
+                GetInfoEmpleadoByIdQuequeMessage(asesorComercial, NombresCompletos, dni, "Persona Natural");
+
             }
             else {
                 new PNotify({
@@ -143,57 +146,57 @@ var JsHomeRegistrarClient = function () {
                 icon: 'icofont icofont-info-circle',
                 type: 'info'
             });
-            //if (response.Success) {
+            if (response.Success) {
 
-            //    debugger;
+                debugger;
 
 
-            //    if (response.Data == "1") {
-            //        new PNotify({
-            //            title: 'Operación Completada',
-            //            text: 'Cliente registrado Exitosamente',
-            //            icon: 'icofont icofont-info-circle',
-            //            type: 'info'
-            //        });
+                if (response.Data == "1") {
+                    new PNotify({
+                        title: 'Operación Completada',
+                        text: 'Cliente registrado Exitosamente',
+                        icon: 'icofont icofont-info-circle',
+                        type: 'info'
+                    });
 
-            //        $('#txtRuc_empresa').val('');
-            //        $('#txtNombreEmpresa_Empresa').val('');
-            //        $('#txtDireccion_Empresa').val('');
-            //        $('#txtRepresentante_Empresa').val('');
-            //        $('#txtdnirepsentante_Empresa').val('');
-            //        $('#txtcelular_Empresa').val('');
-            //        $('#email_Empresa').val('');
+                    $('#txtRuc_empresa').val('');
+                    $('#txtNombreEmpresa_Empresa').val('');
+                    $('#txtDireccion_Empresa').val('');
+                    $('#txtRepresentante_Empresa').val('');
+                    $('#txtdnirepsentante_Empresa').val('');
+                    $('#txtcelular_Empresa').val('');
+                    $('#email_Empresa').val('');
 
-            //    }
-            //    else if (response.Data == "-2") {
-            //        new PNotify({
-            //            title: 'Error al guardar Cliente!',
-            //            text: 'Cliente ya se encuentra registrado',
-            //            icon: 'icofont icofont-info-circle',
-            //            type: 'error'
-            //        });
-            //    }
-            //    else {
+                }
+                else if (response.Data == "-2") {
+                    new PNotify({
+                        title: 'Error al guardar Cliente!',
+                        text: 'Cliente ya se encuentra registrado',
+                        icon: 'icofont icofont-info-circle',
+                        type: 'error'
+                    });
+                }
+                else {
 
-            //        new PNotify({
-            //            title: 'Error al guardar Cliente',
-            //            text: 'Hubo un error, inténtelo más tarde',
-            //            icon: 'icofont icofont-info-circle',
-            //            type: 'error'
-            //        });
-            //    }
-            //}
-            //else {
-            //    new PNotify({
-            //        title: 'Error al guardar Cliente',
-            //        text: response.Message,
-            //        icon: 'icofont icofont-info-circle',
-            //        type: 'error'
-            //    });
-            //}
+                    new PNotify({
+                        title: 'Error al guardar Cliente',
+                        text: 'Hubo un error, inténtelo más tarde',
+                        icon: 'icofont icofont-info-circle',
+                        type: 'error'
+                    });
+                }
+            }
+            else {
+                new PNotify({
+                    title: 'Error al guardar Cliente',
+                    text: response.Message,
+                    icon: 'icofont icofont-info-circle',
+                    type: 'error'
+                });
+            }
         });
     }
-     
+
     function SaveClienteData_PersonaNatural(dni, NombresCompletos, direccion, distrito, celular, canal_Atencion, asesorComercial, mail) {
 
         var modelView = {
@@ -213,10 +216,10 @@ var JsHomeRegistrarClient = function () {
             url: "/Home/SaveClienteData_PersonaNatural/",
             data: modelView
         }).done(function (response) {
-
+            debugger;
             if (response.Success) {
 
-                debugger;
+
 
 
                 if (response.Data == "1") {
@@ -334,7 +337,47 @@ var JsHomeRegistrarClient = function () {
             });
     }
 
+    function GetListEmpleadoAsesores() {
 
+        $.ajax({
+            method: "POST",
+            url: "/Home/GetListEmpleadoAsesores/"
+
+        }).done(function (response) {
+
+            console.log(response.Data);
+
+            $.each(response.Data, function (i, item) {
+
+                //console.log(item);
+                $('<option value="' + item.EmployeeeId + '">' + item.FullName + '</option>').appendTo('#cboAsesorComercial_PersonaNatural');
+                $('<option value="' + item.EmployeeeId + '">' + item.FullName + '</option>').appendTo('#cboAsesor_Empresa');
+
+            });
+            //cboAsesorComercial_PersonaNatural
+        })
+
+    }
+
+    function GetInfoEmpleadoByIdQuequeMessage(EmployeeeId, nombre, dni, tipoCliente) {
+
+        var modelView = {
+            EmployeeeId: EmployeeeId,
+            nombre: nombre,
+            dni: dni,
+            tipoCliente: tipoCliente
+        };
+
+        $.ajax({
+            method: "POST",
+            url: "/Home/GetInfoEmpleadoByIdQuequeMessage/",
+            data: modelView
+        }).done(function (response) {
+
+        })
+    }
+
+    GetListEmpleadoAsesores();
     return {
         init: function (parametros) {
 

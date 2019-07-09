@@ -27,5 +27,9 @@ namespace WebTech.Models
 
         public string AsessorCommercial { get; set; }
         public string distrito { get; set; }
+
+        public string To { get; set; }
+        public string Subject { get; set; }
+        public string Body { get; set; }
     }
 }

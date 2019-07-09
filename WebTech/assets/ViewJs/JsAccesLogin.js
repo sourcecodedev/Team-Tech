@@ -6,16 +6,12 @@ var JsAccessLoginForm = function () {
 
     $('#btn-Ingresar_login').on('click', function () {
 
-        debugger;
         var valor_usuario = $('#txtusuarioForm').val();
         var valor_password = $('#txtpasswordForm').val();
 
         if (valor_usuario != "" && valor_password != "") {
 
-
-            ValidateAcessLogin(valor_usuario, valor_password)
-
-
+            ValidateAcessLogin(valor_usuario, valor_password);
         }
         else {
             $('#txtusuarioForm').val('');
@@ -28,7 +24,6 @@ var JsAccessLoginForm = function () {
             });
         }
     });
-
     function ValidateAcessLogin(usu, pass) {
 
         var modelView = {
@@ -40,7 +35,8 @@ var JsAccessLoginForm = function () {
             url: "/Account/ValidateSessionPortalWeb/",
             data: modelView
         })
-            .done(function () {
+            .done(function (response) {
+
 
                 location.href = '/' + urlHomeIndex;
 

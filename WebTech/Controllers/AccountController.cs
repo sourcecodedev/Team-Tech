@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TeamTech.Common;
@@ -17,21 +16,21 @@ namespace WebTech.Controllers
         public ActionResult Login() => View();
 
         [HttpPost]
-        public ActionResult ValidateSessionPortalWeb( string usu, string pass)
+        public ActionResult ValidateSessionPortalWeb(string usu, string pass)
         {
             var jsonResponse = new JsonResponse { Success = true };
             try
             {
                 int response = SOATServicesUsuario.Instancia.ValidateAccessLoginTeamTech(usu, pass);
 
-                if (response == 1 )
+                if (response == 1)
                 {
                     var _dataLogin_usuaario = SOATServicesUsuario.Instancia.GetDatabyUserTech(usu);
                     GenerarTickectAutenticacion(_dataLogin_usuaario);
                     jsonResponse.Data = _dataLogin_usuaario.NombreEmpleado + "" + _dataLogin_usuaario.Apellido_empleado;
                     jsonResponse.Success = true;
                 }
-                else if(response == 0)
+                else if (response == 0)
                 {
                     jsonResponse.Success = false;
                     jsonResponse.Message = "Credenciales Incorrectas";
@@ -48,7 +47,7 @@ namespace WebTech.Controllers
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
             }
-            return   Json(jsonResponse);
+            return Json(jsonResponse);
         }
 
         [HttpPost]
@@ -67,7 +66,7 @@ namespace WebTech.Controllers
                 }
             }
             catch (Exception)
-            { 
+            {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
             }
@@ -83,7 +82,7 @@ namespace WebTech.Controllers
             AuthenticationHelper.CreateAuthenticationTicket(usuarioModel.Username, usuarioModel.TimeZoneId);
 
             WebSession.Usuario = usuarioModel;
- 
+
         }
         public ActionResult LogOut()
         {
@@ -100,5 +99,11 @@ namespace WebTech.Controllers
             WebSession.Formularios = new List<FormularioModel>();
         }
 
+        public ActionResult EnvioNotificationQueQue()
+        {
+            var jsonResponse = new JsonResponse { Success = true };
+
+            return Json(jsonResponse);
+        }
     }
 }
