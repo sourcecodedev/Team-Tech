@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Web.Mvc;
 using TeamTech.Common;
-using TeamTech.Common.StorageQueque;
+using WebTech.Core;
 using WebTech.ServicesApi.Services;
 using WebTech.Utilities;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Queue;
+using System.Net.Mail;
 
 namespace WebTech.Controllers
 {
@@ -184,7 +187,7 @@ namespace WebTech.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetInfoEmpleadoByIdQuequeMessage(int EmployeeeId, string nombre, string dni, string tipoCliente)
+        public ActionResult GetInfoEmpleadoByIdQuequeMessage(int EmployeeeId, string nombre, string Identitficador, string tipoCliente)
         {
             var jsonResponse = new JsonResponse { Success = true };
 
@@ -196,15 +199,16 @@ namespace WebTech.Controllers
                 {
                     jsonResponse.Success = true;
                     QueueManager queueManager = new QueueManager(quequeConexion);
-                    string quequeMessage = "{\"TO\": \"" + item.Email_Employee + "\", \"Subject\": \"Asignación Nuevo Cliente GRUPO TECH\",\"Body\":\"Asesor comercial : " + item.FullName + " Se te asignado un nuevo cliente para su respectivo seguimiento en las solicitudes de los servicios que realice <br> Cliente :  <strong>" + nombre + "</strong> <br> DNI :  <strong>" + dni + "</strong> <br> Tipo Cliente :  <strong>" + tipoCliente + "</strong> \"}";
+                    string quequeMessage = "{\"TO\": \"" + item.Email_Employee + "\", \"Subject\": \"Asignación Nuevo Cliente GRUPO TECH\",\"Body\":\"Asesor comercial : " + item.FullName + " Se te asignado un nuevo cliente para su respectivo seguimiento en las solicitudes de los servicios que realice.<br><br> Cliente :  <strong>" + nombre + "</strong> <br> DNI :  <strong>" + Identitficador + "</strong> <br> Tipo Cliente :  <strong>" + tipoCliente + "</strong> \"}";
                     queueManager.SendQueue(quequeMessage, "quequemailernotification");
+
                 }
                 else
                 {
                     jsonResponse.Success = false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;

@@ -140,15 +140,10 @@ var JsHomeRegistrarClient = function () {
             data: modelView
         }).done(function (response) {
 
-            new PNotify({
-                title: 'Operación Completada',
-                text: 'Cliente registrado Exitosamente',
-                icon: 'icofont icofont-info-circle',
-                type: 'info'
-            });
+          
             if (response.Success) {
 
-                debugger;
+             
 
 
                 if (response.Data == "1") {
@@ -159,6 +154,7 @@ var JsHomeRegistrarClient = function () {
                         type: 'info'
                     });
 
+                    
                     $('#txtRuc_empresa').val('');
                     $('#txtNombreEmpresa_Empresa').val('');
                     $('#txtDireccion_Empresa').val('');
