@@ -7,13 +7,12 @@ using WebTech.Utilities;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace WebTech.Controllers
 {
     public class HomeController : Controller
-    {
-        string quequeConexion = "DefaultEndpointsProtocol=https;AccountName=grupotech9d24;AccountKey=HQ49em+OzaY5BWq7Bw1g1+JvuOUeoYlTXAde7C1iqSE3QalHGGi8+OzfUkAFdjrjtj/IUmVU6IED0H+Aggxr8w==;EndpointSuffix=core.windows.net";
-
+    { 
         // GET: Home
         public ActionResult Index()
         {
@@ -198,7 +197,7 @@ namespace WebTech.Controllers
                 if (item != null)
                 {
                     jsonResponse.Success = true;
-                    QueueManager queueManager = new QueueManager(quequeConexion);
+                    QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
                     string quequeMessage = "{\"TO\": \"" + item.Email_Employee + "\", \"Subject\": \"Asignación Nuevo Cliente GRUPO TECH\",\"Body\":\"Asesor comercial : " + item.FullName + " Se te asignado un nuevo cliente para su respectivo seguimiento en las solicitudes de los servicios que realice.<br><br> Cliente :  <strong>" + nombre + "</strong> <br> DNI :  <strong>" + Identitficador + "</strong> <br> Tipo Cliente :  <strong>" + tipoCliente + "</strong> \"}";
                     queueManager.SendQueue(quequeMessage, "quequemailernotification");
 
