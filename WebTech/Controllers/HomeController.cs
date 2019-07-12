@@ -12,11 +12,16 @@ using System.Configuration;
 namespace WebTech.Controllers
 {
     public class HomeController : Controller
-    { 
+    {
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            if (!Object.Equals(WebSession.Usuario, null))
+            {
+                return View();
+            }
+            else { return RedirectToAction("Login", "Account"); }
+
         }
 
         public ActionResult RegistroCliente()
@@ -35,6 +40,69 @@ namespace WebTech.Controllers
 
             return View();
         }
+        #region MyRegion
+        [HttpPost]
+        public ActionResult ListarTypeServices()
+        {
+            var jsonResponse = new JsonResponse { Success = false };
+
+            try
+            {
+                var resonseDAtaTypeServices = RESTServicesTypeServicios.Instancia.ListarTypeServices();
+
+                if (resonseDAtaTypeServices != null)
+                {
+                    jsonResponse.Data = resonseDAtaTypeServices;
+                    jsonResponse.Success = true;
+                }
+                else
+                {
+                    jsonResponse.Success = false;
+                }
+            }
+            catch (Exception e)
+            {
+                jsonResponse.Warning = true;
+                jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
+            }
+            return Json(jsonResponse);
+        }
+
+        [HttpPost]
+        public ActionResult ListarServicesbyType(int TypeServicesId)
+        {
+            var jsonResponse = new JsonResponse { Success = false };
+
+            try
+            {
+                var resonseDataServicesbyType = RESTServicesServicios.Instancia.ListarServicesbyType(TypeServicesId);
+
+                if (resonseDataServicesbyType != null)
+                {
+                    jsonResponse.Data = resonseDataServicesbyType;
+                    jsonResponse.Success = true;
+                }
+                else
+                {
+                    jsonResponse.Success = false;
+                }
+            }
+            catch (Exception e)
+            {
+                jsonResponse.Warning = true;
+                jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
+            }
+            return Json(jsonResponse);
+        }
+        #endregion 
+
+        #region Modulo RegistroCliente
         [HttpPost]
         public ActionResult SaveClienteData_PersonaNatural(string dni, string NombresCompletos, string direccion, string distrito, string celular, string canal_Atencion, string asesorComercial, string tipoclient, string mail)
         {
@@ -58,10 +126,13 @@ namespace WebTech.Controllers
                 jsonResponse.Data = Response;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
             }
 
             return Json(jsonResponse);
@@ -90,10 +161,13 @@ namespace WebTech.Controllers
                 jsonResponse.Success = true;
                 jsonResponse.Data = Response;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
             }
 
             return Json(jsonResponse);
@@ -120,10 +194,13 @@ namespace WebTech.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
             }
 
             return Json(jsonResponse);
@@ -149,10 +226,13 @@ namespace WebTech.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
             }
 
             return Json(jsonResponse);
@@ -177,10 +257,13 @@ namespace WebTech.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
             }
             return Json(jsonResponse);
         }
@@ -211,9 +294,14 @@ namespace WebTech.Controllers
             {
                 jsonResponse.Success = false;
                 jsonResponse.Message = ConstantesWeb.IntenteloMasTarde;
+                QueueManager queueManager = new QueueManager(ConfigurationManager.AppSettings["quequeConexion"].ToString());
+                string mensaje = "{\"Id\": \"" + e.HResult + "\",Source:\"" + e.Source + "\",Message:\"" + e.Message + "\",HelpLink:\"" + e.HelpLink + "\"}";
+                queueManager.SendQueue(mensaje, "quequeerrorestech");
             }
 
             return Json(jsonResponse);
         }
+
+        #endregion
     }
 }

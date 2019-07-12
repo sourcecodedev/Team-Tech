@@ -1365,6 +1365,7 @@
     <Content Include="assets\pages\x-editable\js\tm_editable.js" />
     <Content Include="assets\pages\x-editable\js\tm_validator.js" />
     <Content Include="assets\pages\x-editable\js\xeditable.js" />
+    <Content Include="assets\ViewJs\JsAccesRegistroCotizacion.js" />
     <Content Include="assets\ViewJs\JsHomeRegistrarClient.js" />
     <Content Include="bower_components\animate.css\css\animate.css" />
     <Content Include="bower_components\autosize\js\autosize.min.js" />
@@ -1545,6 +1546,20 @@
     <None Include="Connected Services\ServiceEmpleado\ServiceEmpleado2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceServicios\ServiceServicios.wsdl" />
+    <None Include="Connected Services\ServiceServicios\ServiceServicios.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceServicios\ServiceServicios1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceServicios\ServiceServicios2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceSolicitud\ServiceSolicitud.wsdl" />
+    <None Include="Connected Services\ServiceSolicitud\ServiceSolicitud.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceUsuario\ServiceUsuario.disco" />
     <None Include="Connected Services\ServiceUsuario\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceUsuario\configuration.svcinfo" />
@@ -1566,6 +1581,20 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\ServiceServicios\ServiceServicios.disco" />
+    <None Include="Connected Services\ServiceServicios\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceServicios\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceServicios\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceSolicitud\ServiceSolicitud.disco" />
+    <None Include="Connected Services\ServiceSolicitud\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceSolicitud\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceSolicitud\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1577,6 +1606,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ServiceEmpleado\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceServicios\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceSolicitud\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -1598,12 +1637,18 @@
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\PersonaNatural.cs" />
+    <Compile Include="Models\Services.cs" />
+    <Compile Include="Models\TypeServices.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Models\WebUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesApi\Interface\IRESTServicesServicios.cs" />
+    <Compile Include="ServicesApi\Interface\IRESTServicesTypeServicios.cs" />
     <Compile Include="ServicesApi\Interface\ISOATServicesEmpleado.cs" />
     <Compile Include="ServicesApi\Interface\ISOATServicesUsuario.cs" />
     <Compile Include="ServicesApi\Interface\ISOATServicesClient.cs" />
+    <Compile Include="ServicesApi\Services\RESTServicesServicios.cs" />
+    <Compile Include="ServicesApi\Services\RESTServicesTypeServicios.cs" />
     <Compile Include="ServicesApi\Services\SOATServicesUsuario.cs" />
     <Compile Include="ServicesApi\Services\SOATServicesClient.cs" />
     <Compile Include="ServicesApi\Services\SOTAServicesEmpleado.cs" />
@@ -1718,6 +1763,8 @@
     <Content Include="Properties\DataSources\ServicesTech.Dominio.Empresa.datasource" />
     <Content Include="Properties\DataSources\ServicesTech.Dominio.PersonaNatural.datasource" />
     <Content Include="Properties\DataSources\ServicesTech.Dominio.Empleado.datasource" />
+    <Content Include="Properties\DataSources\ServicesTech.Dominio.Services.datasource" />
+    <Content Include="Properties\DataSources\ServicesTech.Dominio.TypeServices.datasource" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1749,6 +1796,8 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceClient\" />
     <WCFMetadataStorage Include="Connected Services\ServiceEmpleado\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceServicios\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceSolicitud\" />
     <WCFMetadataStorage Include="Connected Services\ServiceUsuario\" />
   </ItemGroup>
   <PropertyGroup>

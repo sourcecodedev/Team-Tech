@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicesTech.Dominio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicesTech.Dominio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfTypeServices">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TypeServices" nillable="true" type="tns:TypeServices" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTypeServices" nillable="true" type="tns:ArrayOfTypeServices" />
+  <xs:complexType name="TypeServices">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name_TypeServices" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeServicesId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TypeServices" nillable="true" type="tns:TypeServices" />
+  <xs:complexType name="ArrayOfServices">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Services" nillable="true" type="tns:Services" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServices" nillable="true" type="tns:ArrayOfServices" />
+  <xs:complexType name="Services">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name_Services" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriceTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServicesId" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeServices" nillable="true" type="tns:TypeServices" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Services" nillable="true" type="tns:Services" />
+</xs:schema>

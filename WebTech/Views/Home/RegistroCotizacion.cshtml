@@ -1,9 +1,9 @@
 ﻿
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "RegistroCotizacion";
-                Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "RegistroCotizacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section styles{
     <link href="~/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
@@ -78,10 +78,10 @@
                                         <h4 class="sub-title">Agregar Servicios</h4>
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <select name="select" class="form-control">
-                                                    <option value="opt1">Selecionar Tipo Servicio</option>
-                                                    <option value="opt2">TRADUCCIÓN</option>
-                            
+                                                <select  id="cboTipoServices" name="select" class="form-control">
+                                              
+                               
+
 
                                                 </select>
                                             </div>
@@ -89,21 +89,21 @@
                                                 <select name="select" class="form-control">
                                                     <option value="opt1">Selecionar un Idioma</option>
                                                     <option value="opt2">INGLÉS - ESPAÑOL</option>
-                                                    <option value="opt3">ESPAÑOL - INGLÉS</option> 
+                                                    <option value="opt3">ESPAÑOL - INGLÉS</option>
 
                                                 </select>
                                             </div>
                                         </div>
                                         <br />
                                         <div class="row">
-                                  
-                                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                                    <input type="text" class="form-control form-txt-inverse" placeholder="Tarifa X Pagina">
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                                    <input type="text" class="form-control form-txt-inverse" placeholder="Cantidad de paginas *">
-                                                </div>
-                                
+
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <input type="text" class="form-control form-txt-inverse" placeholder="Tarifa X Pagina">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <input type="text" class="form-control form-txt-inverse" placeholder="Cantidad de paginas *">
+                                            </div>
+
                                         </div>
                                         <br />
                                         <div class="row">
@@ -111,8 +111,8 @@
                                                 <textarea rows="2" cols="2" class="form-control" placeholder="Descripción Documento"></textarea>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <button class="btn btn-success btn-square" type="button" >Agregar Servicio</button>
-                                                <button class="btn btn-danger btn-square" type="button" >Grabar Cotizacion</button>
+                                                <button class="btn btn-success btn-square" type="button">Agregar Servicio</button>
+                                                <button class="btn btn-danger btn-square" type="button">Grabar Cotizacion</button>
                                             </div>
                                         </div>
                                         <br />
@@ -195,5 +195,23 @@
     <script type="text/javascript" src="~/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script type="text/javascript" src="~/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
     <script type="text/javascript" src="~/assets/pages/data-table/js/data-table-custom.js"></script>
-     
+    <script src="~/bower_components/pnotify/js/pnotify.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.desktop.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.buttons.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.confirm.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.callbacks.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.animate.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.history.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.mobile.js"></script>
+    <script src="~/bower_components/pnotify/js/pnotify.nonblock.js"></script>
+
+    <script src="~/assets/ViewJs/JsAccesRegistroCotizacion.js"></script>
+
+    <script type="text/javascript">
+        JsAccesRegistroCotizacion.init({
+
+
+        });
+
+    </script>
 }
