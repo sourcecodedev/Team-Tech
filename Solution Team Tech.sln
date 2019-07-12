@@ -17,6 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{43151E14-B956-
 		..\..\..\Documents\script_squemaTeamTech.sql = ..\..\..\Documents\script_squemaTeamTech.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectTech", "UnitTestProjectTech\UnitTestProjectTech.csproj", "{A6C08BE3-EB71-43EA-8C73-8347E904D92C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6925930C-44FF-4D78-81C5-E13E73F1D7C2} = {6925930C-44FF-4D78-81C5-E13E73F1D7C2}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +96,26 @@ Global
 		{6703063F-C145-4D0F-A63E-55B9E08FF75F}.Release|x64.Build.0 = Release|Any CPU
 		{6703063F-C145-4D0F-A63E-55B9E08FF75F}.Release|x86.ActiveCfg = Release|Any CPU
 		{6703063F-C145-4D0F-A63E-55B9E08FF75F}.Release|x86.Build.0 = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|x64.Build.0 = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Debug|x86.Build.0 = Debug|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|ARM.Build.0 = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|ARM64.Build.0 = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|x64.ActiveCfg = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|x64.Build.0 = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|x86.ActiveCfg = Release|Any CPU
+		{A6C08BE3-EB71-43EA-8C73-8347E904D92C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

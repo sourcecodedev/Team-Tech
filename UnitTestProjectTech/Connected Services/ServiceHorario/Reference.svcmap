@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37497766-d174-4776-a1a3-f4a8739a5133" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59230/ServiceHorario.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceHorario.wsdl" MetadataType="Wsdl" ID="6bc788be-1e5a-4882-a52a-37c7df4f7b11" SourceId="1" SourceUrl="http://localhost:59230/ServiceHorario.svc?wsdl" />
+    <MetadataFile FileName="ServiceHorario.xsd" MetadataType="Schema" ID="947df7c6-22c7-4c6c-8619-e833123d3615" SourceId="1" SourceUrl="http://localhost:59230/ServiceHorario.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceHorario1.xsd" MetadataType="Schema" ID="deec66a5-1b1e-4de9-b80a-d1bac3acdaa1" SourceId="1" SourceUrl="http://localhost:59230/ServiceHorario.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceHorario.disco" MetadataType="Disco" ID="9e038912-839f-42d9-9151-41152ed46ab9" SourceId="1" SourceUrl="http://localhost:59230/ServiceHorario.svc?disco" />
+    <MetadataFile FileName="ServiceHorario2.xsd" MetadataType="Schema" ID="53dd42a4-d0a6-46b2-9a63-784971c81804" SourceId="1" SourceUrl="http://localhost:59230/ServiceHorario.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
