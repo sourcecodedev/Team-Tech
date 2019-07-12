@@ -12,6 +12,7 @@ namespace ServicesTech
     [ServiceContract]
     public interface IServiceUsuario
     {
+
         [OperationContract] int ValidateAccessLogin(string email, string passuser);
 
         [OperationContract] UsuarioModel GetDatabyUserTech(string username);
